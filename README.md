@@ -1,11 +1,14 @@
-# CISC191
-Intermediate Java Programming Final Project Template
+# GPA Caclculator
+
 ## Prerequisites
 1. Maven
 2. Git
 3. JDK 1.8
 ## Building
 mvn clean install
+## Runing the Project
+Start the Server 'GpaCalculatorServer' class.
+Run the Client 'GpaCalculatorClient' class.
 ## Running
 java -jar Server/target/Server-1.0.0.jar  
 java -jar Client/target/Client-1.0.0.jar
