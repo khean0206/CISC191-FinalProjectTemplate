@@ -1,3 +1,7 @@
+// The code was improved by using a class-level DecimalFormat object,
+//  which allows the server to efficiently format GPA values without
+//  creating a new instance in each loop iteration.
+
 package edu.sdccd.cisc191;
 
 import java.io.*;
@@ -9,6 +13,11 @@ public class GpaCalculatorServer {
 
     private double totalCredits;
     private double totalGradePoints;
+    private DecimalFormat decimalFormat; // Add this line for the DecimalFormat
+
+    public GpaCalculatorServer() {
+        decimalFormat = new DecimalFormat("#.##"); // Initialize the DecimalFormat in the constructor
+    }
 
     public void start() {
         try {
@@ -37,7 +46,7 @@ public class GpaCalculatorServer {
                         totalGradePoints += gradePoints;
 
                         double gpa = totalGradePoints / totalCredits;
-                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                        // DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
                         GPAResponse response = new GPAResponse(gpa, "GPA calculated successfully");
                         outputStream.writeObject(response);
